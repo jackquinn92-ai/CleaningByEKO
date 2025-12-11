@@ -2,30 +2,31 @@
 
 A PIN-first ticketing flow for security guards with an admin portal for sites, budgets, and reporting.
 
-This repo describes **two backend variants** for the same product:
+This repository contains **two backend options** for different deployment environments:
 
-1. A **full-stack TypeScript + PostgreSQL** implementation (with React frontend, emails, Excel/PDF exports).
-2. An **initial zero-dependency backend prototype** using plain Node.js and JSON-file storage.
+1. **Full-stack production backend (TypeScript + PostgreSQL)**
+2. **Lightweight zero-dependency prototype backend (plain Node.js + JSON storage)**
 
-Use whichever better fits your environment (locked-down vs production-ready).
+The **frontend** (React + Vite) works with either backend.
 
 ---
 
-## 1. Full Stack Implementation
+# 1. Full Stack Implementation (Primary System)
 
-### Stack
-
+## Stack
 - **Backend:** Node.js + Express (TypeScript), PostgreSQL via `pg`
-- **Frontend:** React + TypeScript (Vite) with mobile-friendly guard flow and admin dashboard
-- **Email:** `nodemailer` with SMTP placeholders
+- **Frontend:** React + TypeScript (Vite)  
+  - Guard-friendly mobile flow  
+  - Admin dashboard
+- **Email:** `nodemailer` with SMTP placeholders (JSON transport fallback)
 - **Exports:** Excel via `exceljs`, PDF tickets via `pdfkit`
 
 ---
 
-## Backend (TypeScript + PostgreSQL)
+# Backend (API – TypeScript + PostgreSQL)
 
-### Setup
+Backend lives at the repo root under `src/`.
 
+## Install dependencies
 ```bash
 npm install
-npm run dev:server
