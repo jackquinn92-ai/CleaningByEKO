@@ -1,0 +1,30 @@
+{
+  "companies": [
+    {
+      "id": "comp-1",
+      "name": "EKO Demo Co"
+    }
+  ],
+  "sites": [
+    {
+      "id": "site-1",
+      "companyId": "comp-1",
+      "siteName": "City HQ",
+      "siteAddress": "1 Demo Way, London",
+      "pin": "1234",
+      "pricing": {
+        "Jacket": 5,
+        "Trousers": 4,
+        "Shirt": 3,
+        "MISC": 2
+      },
+      "budget": {
+        "isActive": true,
+        "amount": 2000,
+        "startDate": "2024-07-01",
+        "endDate": "2024-09-30"
+      }
+    }
+  ],
+  "tickets": []
+}
