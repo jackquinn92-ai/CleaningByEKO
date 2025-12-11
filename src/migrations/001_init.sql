@@ -1,0 +1,30 @@
+CREATE TABLE IF NOT EXISTS companies (
+  id SERIAL PRIMARY KEY,
+  name TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS sites (
+  id SERIAL PRIMARY KEY,
+  company_id INTEGER REFERENCES companies(id) ON DELETE CASCADE,
+  site_name TEXT NOT NULL,
+  site_address TEXT NOT NULL,
+  pin VARCHAR(10) UNIQUE NOT NULL,
+  pricing JSONB NOT NULL,
+  budget JSONB NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS tickets (
+  id SERIAL PRIMARY KEY,
+  ref VARCHAR(10) NOT NULL,
+  created_at TIMESTAMP NOT NULL,
+  company_id INTEGER REFERENCES companies(id) ON DELETE CASCADE,
+  company_name TEXT NOT NULL,
+  site_id INTEGER REFERENCES sites(id) ON DELETE CASCADE,
+  site_name TEXT NOT NULL,
+  guard_name TEXT NOT NULL,
+  phone TEXT NOT NULL,
+  email TEXT NOT NULL,
+  items JSONB NOT NULL,
+  notes TEXT,
+  total_cost NUMERIC NOT NULL
+);
